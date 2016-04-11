@@ -1,0 +1,93 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf460
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid201\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww12180\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f0\fs24 \cf0 * This is a course project. I didn\'92t list the steps to run the clint and server as it is supposed to run on some server not locally.\
+\
+This project is \
+
+\f1\b\fs30 Test procedure:
+\f0\b0\fs24 \
+
+\f1\fs30 (I) The Ping-Pong client and server:
+\f0\fs24 \
+
+\f1\fs30  \'a0\'a0\'a0\'a0Concurrency: two laptops were used to connect the runing server on clear at the same time without any problem.	
+\f0\fs24 \
+
+\f1\fs30  \'a0\'a0\'a0\'a0Big data: In the client.c program, data are generated as the form of circulation from letter 'a' to \'a0\'a0
+\f0\fs24 \
+
+\f1\fs30  \'a0\'a0\'a0\'a0letter 'z'. After receiving the echo data from server, the client.c program will compare the received message with the generated sending  message. If two message are different, mismatching error will be printed out.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f1\fs30 \cf0 test cases: 
+\f0\fs24 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl340\partightenfactor0
+\ls1\ilvl0
+\f1\fs30 \cf0 {\listtext	1.	}Run server on clear\
+{\listtext	2.	}Two computers with Unix system and iOS system connect to the server.\
+{\listtext	3.	}Send small data (e.g. 10 bytes) concurrently with any times (1<=count<=10,000); works fine.\
+{\listtext	4.	}Send big data (e.g. 60000 bytes) concurrently with any times (1<=count<=10,1000);\
+\pard\pardeftab720\sl340\partightenfactor0
+\cf0 	works fine.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f1\fs30 \cf0 Special cases:
+\f0\fs24 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl340\partightenfactor0
+\ls2\ilvl0
+\f1\fs30 \cf0 		Due to the unstability of the internet, the received data may not match the original-sent data. In this case, client will abort the connection with server without effecting other clients\
+\pard\tx720\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf0 (II) The Web Server:
+\f0\fs24 \
+
+\f1\fs30 	Under \'93www\'94 mode, the server can serve static content to client. Our server only handles \'93txt/html\'94 file and serve all other file type as \'93txt/plain\'94. 
+\f0\fs24 \
+
+\f1\fs30 	The error_handler can generate error message for error 400, 404, 500 and 501 with error number, a short message, and a long message.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f1\fs30 \cf0 400: Bad Request. If the uri containes ../, this error will be printed out.
+\f0\fs24 \
+
+\f1\fs30 404: Not Found. This error happens when the requested file cannot be found.
+\f0\fs24 \
+
+\f1\fs30 500: Internal Server Error. This happens when server could not send datat to client.
+\f0\fs24 \
+
+\f1\fs30 501: Not Implemented. Since the server.c program only handles GET request, all other methods will be dealt as 501 error.
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f1\fs30 \cf0 test cases:
+\f0\fs24 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl340\partightenfactor0
+\ls3\ilvl0
+\f1\fs30 \cf0 {\listtext	1.	}Two laptops were used to connecting the server through browser simultaneously.\
+{\listtext	2.	}If \'93/\'94 is the last character of URI, home.html will be appended to the uri automatically and the server will serve the home.html as the default home page.\
+{\listtext	3.	}Simple .html file and .txt file were opend successfully through browser.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0\cf0 {\listtext	4.	}The \'93../\'94 400 error was tested using telnet command line because the browser will ignore it automatically. 501 error was also tested using telnet command line. 404 error was tested through both browser and telnet command line. We have not find 500 erro during our tests which shows the stability of our server. \
+}
